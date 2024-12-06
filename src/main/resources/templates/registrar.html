@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+<section class="pb-4" 
+    style="background-image: url('/images/container.png');">
+		<div class="container py-4 d-flex justify-content-center align-items-center min-vh-100">
+			<div class="row justify-content-center w-100">
+				<div class="col-lg-8 col-xl-6">
+					<div class="card rounded-3 shadow-sm text-black">
+						<div class="card-body p-4 p-sm-5">
+
+							<div class="text-center mb-3">
+								<img src="/images/logo.png" alt="logo" class="img-fluid"
+									style="max-width: 20%;" />
+							</div>
+
+
+							<h3 class="fw-bold text-center mb-3">¡Bienvenido!</h3>
+							<h5 class="text-muted text-center mb-4">Registro de Usuario</h5>
+
+							<form th:action="@{/registrar}" th:object="${usuario}"
+								method="post">
+
+								<div class="row g-4 mb-4">
+									<div class="col-md-6 form-outline">
+										<label for="Nombres" class="form-label fw-semibold">Nombres</label>
+										<input type="text" id="Nombres"
+											class="form-control border border-1 rounded shadow-sm"
+											placeholder="Ingrese sus nombres" th:field="*{nombres}"
+											required>
+									</div>
+									<div class="col-md-6 form-outline">
+										<label for="apellidos" class="form-label fw-semibold">Apellidos</label>
+										<input type="text" id="apellidos"
+											class="form-control border border-1 rounded shadow-sm"
+											placeholder="Ingrese sus apellidos" th:field="*{apellidos}"
+											required>
+									</div>
+								</div>
+
+								<div class="mb-4 form-outline">
+									<label for="documentId" class="form-label fw-semibold">Documento
+										de Identidad</label> <input type="text" id="documentId"
+										class="form-control border border-1 rounded shadow-sm"
+										placeholder="Ingrese su número de documento"
+										th:field="*{documentoID}" required>
+								</div>
+
+								<div class="row g-4 mb-4">
+									<div class="col-md-6 form-outline">
+										<label for="username" class="form-label fw-semibold">Nombre
+											de Usuario</label> <input type="text" id="username"
+											class="form-control border border-1 rounded shadow-sm"
+											placeholder="Ingrese su usuario" th:field="*{username}"
+											required>
+									</div>
+									<div class="col-md-6 form-outline">
+										<label for="password" class="form-label fw-semibold">Contraseña</label>
+										<input type="password" id="password"
+											class="form-control border border-1 rounded shadow-sm"
+											placeholder="Ingrese su contraseña" th:field="*{password}"
+											required>
+									</div>
+								</div>
+
+								<div class="mb-4 form-outline">
+									<label for="phoneNumber" class="form-label fw-semibold">Número
+										de Teléfono</label> <input type="tel" id="phoneNumber"
+										class="form-control border border-1 rounded shadow-sm"
+										placeholder="Ingrese su número de teléfono"
+										th:field="*{telefono}">
+								</div>
+
+								<div class="d-grid mt-4">
+									<button class="btn btn-primary btn-lg shadow-sm" type="submit">Registrar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer th:replace="layout/layout :: footer"></footer>
+	
+</body>
+</html>
